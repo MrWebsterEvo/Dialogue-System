@@ -12,5 +12,5 @@ func _ready():
 func _input(event):
 	if event.is_action_pressed("act_LMB"):
 		var text_string: String
-		text_string = Reader.load_file(file_name)
+		text_string = Reader.proceed_text(file_name)
 		Output.get_text_to_textbox(text_string)

@@ -2,7 +2,20 @@ extends Node2D
 
 signal EOF_reached
 
+enum {
+	IDLE,
+	ADVANCE
+}
+
 onready var Interpreter := get_node("Interpreter")
+onready var STATE := IDLE
+
+
+func proceed_text(file_obj: Object):
+	if STATE == IDLE:
+		return load_file(file_obj)
+	elif STATE == ADVANCE:
+		pass
 
 func load_file(file_obj: Object):
 	var raw_string: String
