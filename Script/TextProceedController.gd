@@ -14,6 +14,7 @@ onready var STATE := IDLE
 
 var dialogue_node: Node
 var text_string: String
+var speaker_name: String
 var line_id: int
 
 func _ready():
@@ -36,10 +37,12 @@ func load_file():
 	
 	if not line_id:
 		container = dialogue_node.dialogue_container[1]
+		speaker_name = container[0]
 		line_id = container[2]
 		full_string[1] = container[1]
 	else:
 		container = dialogue_node.dialogue_container[line_id]
+		speaker_name = container[0]
 		full_string[1] = container[1]
 		line_id = container[2]
 	
@@ -57,6 +60,7 @@ func start_typing():
 	var speed: float
 	speed = define_speed_for_one_symbol(character_per_second)
 	if STATE:
+		Output.set_name_to_textbox(speaker_name)
 		for symbol in text_string:
 			match STATE:
 				ADVANCE:

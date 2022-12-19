@@ -45,7 +45,6 @@ margin_top = -16.0
 margin_right = 181.0
 margin_bottom = 14.0
 custom_fonts/font = SubResource( 2 )
-text = "NAME"
 align = 1
 valign = 1
 uppercase = true
