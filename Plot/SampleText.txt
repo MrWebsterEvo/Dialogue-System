@@ -1,2 +1,2 @@
-"Sample Text"
+"Sample Text" lol
 "Read from file"

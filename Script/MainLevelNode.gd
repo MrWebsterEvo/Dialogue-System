@@ -1,13 +1,15 @@
 extends Node2D
 
-const FILE_NAME := "res://Plot/SampleText.txt"
-var file_obj = File.new()
-onready var Reader := get_node("FileReader")
+onready var Dialogue: Node
 
-func _ready():
-	file_obj.open(FILE_NAME, File.READ)
-	Reader.connect("EOF_reached", self, "close_file")
+onready var TestLabel := get_node("TestLabel")
+onready var Controller := get_node("TextProceedController")
 
-func close_file():
-	print("Closing file " + str(file_obj))
-	file_obj.close()
+func get_dialogue_node():
+	Dialogue = get_node("DialogueExample")
+	return Dialogue
+
+func _process(_delta):
+	var state: int
+	state = Controller.STATE
+	TestLabel.text = str(state)
