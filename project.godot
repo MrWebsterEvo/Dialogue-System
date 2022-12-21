@@ -10,9 +10,9 @@ config_version=4
 
 [application]
 
-config/name="Dialogue System"
+config/name="TRPG"
 config/description="Тренировка в создании диалоговой системы"
-run/main_scene="res://Scenes/MainLevelNode.tscn"
+run/main_scene="res://Scenes/DialogueNode.tscn"
 config/icon="res://icon.png"
 
 [autoload]
