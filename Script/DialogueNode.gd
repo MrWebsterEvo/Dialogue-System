@@ -1,11 +1,11 @@
 extends Node2D
 
-onready var Dialogue: Node
+@onready var Dialogue: Node
 
-onready var TestLabel := get_node("TestLabel")
-onready var Controller := get_node("TextProceedController")
+@onready var TestLabel := get_node("TestLabel")
+@onready var Controller := get_node("TextProceedController")
 
-func get_dialogue_node():
+func get_dialogue_node() -> Node2D:
 	Dialogue = get_node("DialogueExample")
 	return Dialogue
 

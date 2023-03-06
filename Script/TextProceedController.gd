@@ -1,8 +1,8 @@
 extends Node2D
 
-onready var Output := get_node("../TextBox")
-onready var Parent := get_node("..")
-onready var character_per_second = GlobalParamList.CPS
+@onready var Output := get_node("../TextBox")
+@onready var Parent := get_node("..")
+@onready var character_per_second = GlobalParamList.CPS
 
 enum {
 	IDLE,
@@ -10,9 +10,9 @@ enum {
 	FAST_FORWARD
 }
 
-onready var STATE := IDLE
+@onready var STATE := IDLE
 
-var dialogue_node: Node
+var dialogue_node: Node2D
 var text_string: String
 var speaker_name: String
 var line_id: int
@@ -23,12 +23,12 @@ func _ready():
 
 func _input(event):
 	if event.is_action_pressed("act_LMB"):
-		if not text_string:
+		if text_string.is_empty():
 			text_string = load_file()
-		if text_string and STATE == IDLE:
+		if not text_string.is_empty() and STATE == IDLE:
 			STATE = ADVANCE
 			start_typing()
-		elif text_string and STATE == ADVANCE:
+		elif not text_string.is_empty() and STATE == ADVANCE:
 			STATE = FAST_FORWARD
 
 func load_file():
@@ -64,7 +64,8 @@ func start_typing():
 		for symbol in text_string:
 			match STATE:
 				ADVANCE:
-					yield(get_tree().create_timer(speed), "timeout")
+					# yield(get_tree().create_timer(speed), "timeout")
+					await get_tree().create_timer(speed).timeout
 					container += symbol
 					Output.set_text_to_textbox(container)
 				FAST_FORWARD:

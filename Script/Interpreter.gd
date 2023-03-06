@@ -3,10 +3,10 @@ extends Node2D
 var STATE: int
 
 enum {AWAITING_COMMAND, # ожидание команды
-	  READING_STRING, # считывание строки
-	  READING_COMMAND, # считывание команды
-	  BREAK # окончание работы интрерпретатора
-	  }
+	READING_STRING, # считывание строки
+	READING_COMMAND, # считывание команды
+	BREAK # окончание работы интрерпретатора
+	}
 
 func read_line(text: String):
 	var output_text := ['',''] # 0 - TEXT, 1 - TYPE_OF_COMMAND

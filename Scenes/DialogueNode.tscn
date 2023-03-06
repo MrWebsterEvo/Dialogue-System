@@ -1,28 +1,24 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=8 format=3 uid="uid://dlp6iuitbx5fp"]
 
-[ext_resource path="res://Scenes/TextBox.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Sprites/blame.png" type="Texture" id=2]
-[ext_resource path="res://Script/DialogueNode.gd" type="Script" id=3]
-[ext_resource path="res://Scenes/TextProceedController.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/DialogueNodes/DialogueExample.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/CharacterBase.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Sprites/body_1.png" type="Texture" id=7]
+[ext_resource type="PackedScene" uid="uid://dndb8m1e0ceyr" path="res://Scenes/TextBox.tscn" id="1"]
+[ext_resource type="Texture2D" uid="uid://dn6x58elk07mk" path="res://Sprites/blame.png" id="2"]
+[ext_resource type="Script" path="res://Script/DialogueNode.gd" id="3"]
+[ext_resource type="PackedScene" path="res://Scenes/TextProceedController.tscn" id="4"]
+[ext_resource type="PackedScene" path="res://Scenes/DialogueNodes/DialogueExample.tscn" id="5"]
+[ext_resource type="PackedScene" path="res://Scenes/CharacterBase.tscn" id="6"]
+[ext_resource type="Texture2D" uid="uid://dlacjn8a7opfj" path="res://Sprites/body_1.png" id="7"]
 
 [node name="DialogueNode" type="Node2D"]
-script = ExtResource( 3 )
+script = ExtResource("3")
 
-[node name="DialogueExample" parent="." instance=ExtResource( 5 )]
+[node name="DialogueExample" parent="." instance=ExtResource("5")]
 
-[node name="CharacterBase" parent="." instance=ExtResource( 6 )]
-sprite_body = ExtResource( 7 )
-sprite_emotion = ExtResource( 2 )
+[node name="CharacterBase" parent="." instance=ExtResource("6")]
+sprite_body = ExtResource("7")
+sprite_emotion = ExtResource("2")
 
-[node name="TextBox" parent="." instance=ExtResource( 1 )]
+[node name="TextBox" parent="." instance=ExtResource("1")]
 
-[node name="TextProceedController" parent="." instance=ExtResource( 4 )]
+[node name="TextProceedController" parent="." instance=ExtResource("4")]
 
 [node name="TestLabel" type="Label" parent="."]
-margin_left = 58.0
-margin_top = 18.0
-margin_right = 360.0
-margin_bottom = 114.0
